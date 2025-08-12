@@ -52,7 +52,7 @@
     @keyframes float{
       0%{transform:translate(var(--sx), var(--sy))}
       50%{transform:translate(calc(var(--sx) + var(--dx)/2), calc(var(--sy) + var(--dy)/2))}
-      100%{transform:translate(calc(var(--sx) + var(--dx)), calc(var(--sy) + var(--dy)))
+      100%{transform:translate(calc(var(--sx) + var(--dx)), calc(var(--sy) + var(--dy)))}
     }
   </style>
 </head>
@@ -69,7 +69,7 @@
       const vw = window.innerWidth;
       const vh = window.innerHeight;
       function rand(min, max){ return Math.random()*(max-min)+min }
-      for(let i=0;i<count;i++){ 
+      for(let i=0;i<count;i++){
         const b = document.createElement('div');
         b.className = 'butterfly';
         b.textContent = '🦋';
