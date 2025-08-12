@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday Priyanka!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body{
+      margin:0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg,#ffd9ec,#ffb6d7,#ff7cb3);
+      color:#222;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100vh;
+      overflow:hidden;
+    }
+    .card{
+      text-align:center;
+      padding:36px;
+      border-radius:18px;
+      background: rgba(255,255,255,0.8);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      backdrop-filter: blur(6px);
+      position:relative;
+      overflow:visible;
+    }
+    h1{
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.6rem;
+      margin:0 0 12px 0;
+      color: #ff1f80;
+    }
+    p{
+      font-size:1.2rem;
+      color:#6b2b4a;
+    }
+    .butterflies{
+      pointer-events:none;
+      position:absolute;
+      inset:0;
+      overflow:hidden;
+      z-index:5;
+    }
+    .butterfly{
+      position:absolute;
+      font-size:2rem;
+      animation: float linear infinite;
+    }
+    @keyframes float{
+      0%{transform:translate(var(--sx), var(--sy))}
+      50%{transform:translate(calc(var(--sx) + var(--dx)/2), calc(var(--sy) + var(--dy)/2))}
+      100%{transform:translate(calc(var(--sx) + var(--dx)), calc(var(--sy) + var(--dy)))
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Happy Birthday, Priyanka! 🎉</h1>
+    <p>Wishing you joy, love, and endless happiness on your special day! 💖</p>
+    <div class="butterflies" id="butterflies"></div>
+  </div>
+  <script>
+    (function(){
+      const container = document.getElementById('butterflies');
+      const count = 15;
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      function rand(min, max){ return Math.random()*(max-min)+min }
+      for(let i=0;i<count;i++){ 
+        const b = document.createElement('div');
+        b.className = 'butterfly';
+        b.textContent = '🦋';
+        const dur = rand(8,18).toFixed(2) + 's';
+        b.style.setProperty('--sx', rand(-0.2*vw, 0.8*vw) + 'px');
+        b.style.setProperty('--sy', rand(-0.1*vh, 0.8*vh) + 'px');
+        b.style.setProperty('--dx', rand(-0.6*vw, 0.6*vw) + 'px');
+        b.style.setProperty('--dy', rand(-0.6*vh, 0.6*vh) + 'px');
+        b.style.animationDuration = dur;
+        container.appendChild(b);
+      }
+    })();
+  </script>
+</body>
+</html>
